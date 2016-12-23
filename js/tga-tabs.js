@@ -89,13 +89,13 @@
 
         },
 
-        setHeightWrap: function () {
+        setHeightWrap: function (delay) {
 
             setTimeout( function () {
 
                 TGATabs.settings.wrap.height(TGATabs.getHeightWrap());
 
-            }, 500);
+            }, delay);
 
         },
 
@@ -103,33 +103,38 @@
 
             this.variables = new TGATabs.getVariables(t);
 
-            if(!TGATabs.variables.nextToggle.hasClass('active')) {
+            jQuery.when(TGATabs.setHeightWrap(0)).done(function () {
 
-                TweenLite.to(TGATabs.variables.currentContent, 0.5, {css: {left: -TGATabs.settings.w.width()}});
-                TweenLite.set(TGATabs.variables.nextContent, {css: {left: TGATabs.settings.w.width()}});
-                TweenLite.to(TGATabs.variables.nextContent, 0.5, {css: {left: '0'}});
+                if (!TGATabs.variables.nextToggle.hasClass('active')) {
 
-                TGATabs.variables.allToggle.removeClass("active");
-                TGATabs.variables.allTabsContent.removeClass("active");
-                TGATabs.variables.nextContent.addClass("active");
-                TGATabs.variables.nextToggle.addClass("active");
+                    TweenLite.to(TGATabs.variables.currentContent, 0.5, {css: {left: -TGATabs.settings.w.width()}});
+                    TweenLite.set(TGATabs.variables.nextContent, {css: {left: TGATabs.settings.w.width()}});
+                    TweenLite.to(TGATabs.variables.nextContent, 0.5, {css: {left: '0'}});
 
-            }
+                    TGATabs.variables.allToggle.removeClass("active");
+                    TGATabs.variables.allTabsContent.removeClass("active");
+                    TGATabs.variables.nextContent.addClass("active");
+                    TGATabs.variables.nextToggle.addClass("active");
 
-            TGATabs.setHeightWrap();
+                }
+
+            });
 
         },
 
         adjust: function(){
 
             TGATabs.variables.allTabsContent.not('.active').css('left', TGATabs.settings.w.width());
-            TGATabs.setHeightWrap();
+            TGATabs.setHeightWrap(500);
 
         },
 
         setTrigger: function(){
 
-            TGATabs.settings.wrap.find('.tab:first-child').click(); 
+            TGATabs.settings.w.bind('load', function () {
+
+                TGATabs.settings.wrap.find('.tab:first-child').click();
+            });
 
         }
 
