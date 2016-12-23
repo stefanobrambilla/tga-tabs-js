@@ -1,8 +1,10 @@
 /**
  * Created by stefano.brambilla on 22/12/2016.
- * version: 1.1
+ * https://github.com/tigia/tga-tabs-js
  *
  * TGATabs plugin
+ * version: 1.1
+ *
  */
 
     var TGATabs = {
@@ -48,13 +50,9 @@
 
             jQuery(window).on('resize', function(){
 
-
 				TGATabs.adjust();
 
-
             });
-
-
 
         },
 
@@ -67,7 +65,7 @@
 
                 TweenLite.to(TGATabs.variables.currentContent, 0.5, {css: {left: -TGATabs.settings.w.width()}});
                 TweenLite.set(TGATabs.variables.nextContent, {css: {left: TGATabs.settings.w.width()}});
-                TweenLite.to(TGATabs.variables.nextContent, 0.50, {css: {left: '0'}});
+                TweenLite.to(TGATabs.variables.nextContent, 0.5, {css: {left: '0'}});
 
                 TGATabs.variables.allToggle.removeClass("active");
                 TGATabs.variables.allTabsContent.removeClass("active");
