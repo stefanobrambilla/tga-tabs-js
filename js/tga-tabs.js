@@ -62,7 +62,7 @@
 
         haveTabs: function () {
 
-            TGATabs.settings.wrap.lenght > 0 ? haveTabs = true :  haveTabs = false ;
+            TGATabs.settings.wrap.length > 0 ? haveTabs = true :  haveTabs = false ;
 
             return haveTabs;
 
