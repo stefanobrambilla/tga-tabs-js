@@ -50,12 +50,23 @@
 
             jQuery(window).on('resize', function(){
 
-				TGATabs.adjust();
+                if (TGATabs.haveTabs()){
+
+                    TGATabs.adjust();
+
+                }
 
             });
 
         },
 
+        haveTabs: function () {
+
+            TGATabs.settings.wrap.lenght > 0 ? haveTabs = true :  haveTabs = false ;
+
+            return haveTabs;
+
+        },
 
         animation: function(t){
 
