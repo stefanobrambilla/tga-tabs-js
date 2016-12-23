@@ -23,6 +23,7 @@
 
             this.wrap   =    jQuery('.tabbed-wrap');
             this.toggle =    this.wrap.find('.tab');
+            this.initClass  =    'tga-tab-init';
             this.w      =    jQuery(window);
 
         },
@@ -62,7 +63,7 @@
 
         haveTabs: function () {
 
-            TGATabs.settings.wrap.length > 0 ? haveTabs = true :  haveTabs = false ;
+            TGATabs.settings.wrap.length > 0 && TGATabs.settings.wrap.hasClass(TGATabs.settings.initClass) ? haveTabs = true :  haveTabs = false ;
 
             return haveTabs;
 
@@ -118,7 +119,16 @@
 
                 }
 
+                TGATabs.setInitializeTab();
+
             });
+
+        },
+
+
+        setInitializeTab: function () {
+
+            TGATabs.settings.wrap.addClass(TGATabs.settings.initClass);
 
         },
 
