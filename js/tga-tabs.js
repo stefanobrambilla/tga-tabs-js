@@ -68,6 +68,37 @@
 
         },
 
+        getHeightWrap: function () {
+
+            var tabRow      = 0,
+                tabHeight   = 0;
+
+            TGATabs.variables.allToggle.each( function () {
+
+                tabHeight = jQuery(this).outerHeight(true);
+
+                if(tabHeight > tabRow){
+
+                    tabRow = tabHeight;
+
+                }
+
+            });
+
+            return TGATabs.variables.nextContent.outerHeight(true) + tabRow;
+
+        },
+
+        setHeightWrap: function () {
+
+            setTimeout( function () {
+
+                TGATabs.settings.wrap.height(TGATabs.getHeightWrap());
+
+            }, 500);
+
+        },
+
         animation: function(t){
 
             this.variables = new TGATabs.getVariables(t);
@@ -85,11 +116,14 @@
 
             }
 
+            TGATabs.setHeightWrap();
+
         },
 
         adjust: function(){
 
             TGATabs.variables.allTabsContent.not('.active').css('left', TGATabs.settings.w.width());
+            TGATabs.setHeightWrap();
 
         },
 
