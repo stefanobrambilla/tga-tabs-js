@@ -19,6 +19,6 @@ Manage tabs whitout display none
 ``` 
 ### Settings
 
-Option | Default | Permitted
------- | ------- | -----------
-effect | slide | slide, fade
+Option | Default | Permitted | Usage 
+------ | ------- | ----------- | --------
+effect | slide | slide, fade | Insert in 'tabbed-wrap' element a  data attribute named 'data-effect' whit permitted value 
