@@ -17,10 +17,8 @@ Manage tabs whitout display none
     </div>
 </div>
 ``` 
+### Settings
 
-``` Option
-
-`` Effect
-
-slide (is default)
-fade
+Option | Default | Permitted
+------ | ------- | -----------
+effect | slide | slide, fade
