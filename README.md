@@ -15,7 +15,7 @@ Manage tabs whitout display none
     <div class="tab-content related-block products-block" data-tab-content="related-products">
         tab2 content
     </div>
-</div>
+</div> 
 ``` 
 ### Settings
 

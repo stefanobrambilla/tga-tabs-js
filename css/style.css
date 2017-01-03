@@ -26,7 +26,8 @@
       color: #000; }
   .tabbed-wrap [data-tab-content] {
     position: absolute;
-    width: 100%; }
+    width: 100%;
+    left: -100%; }
   .tabbed-wrap[data-effect="slide"] [data-tab-content] {
     left: -100%; }
   .tabbed-wrap[data-effect="fade"] [data-tab-content] {
