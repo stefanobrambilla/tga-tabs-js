@@ -32,6 +32,7 @@
 
             this.nextToggle       = jQuery(t);
             this.currentWrap      = this.nextToggle.closest('.tabbed-wrap');
+            this.effects          = this.currentWrap.attr('data-effect');
             this.allToggle        = this.currentWrap.find('[data-tab]');
             this.allTabsContent   = this.currentWrap.find('[data-tab-content]');
             this.tabData          = this.nextToggle.data('tab');
@@ -108,9 +109,8 @@
 
                 if (!TGATabs.variables.nextToggle.hasClass('active')) {
 
-                    TweenLite.to(TGATabs.variables.currentContent, 0.5, {css: {left: -TGATabs.settings.w.width()}});
-                    TweenLite.set(TGATabs.variables.nextContent, {css: {left: TGATabs.settings.w.width()}});
-                    TweenLite.to(TGATabs.variables.nextContent, 0.5, {css: {left: '0'}});
+
+                    TGATabs.effect();
 
                     TGATabs.variables.allToggle.removeClass("active");
                     TGATabs.variables.allTabsContent.removeClass("active");
@@ -125,6 +125,28 @@
 
         },
 
+        effect: function () {
+
+            if(!TGATabs.variables.effects || typeof TGATabs.variables.effects == "undefined"){
+
+                TGATabs.variables.effects = 'slide';
+
+            }
+
+            if(TGATabs.variables.effects == 'fade'){
+
+                TweenLite.to(TGATabs.variables.allTabsContent, 0.5, {css: {opacity: 0}});
+                TweenLite.to(TGATabs.variables.nextContent, 0.5, {css: {opacity: 1}});
+
+            }else if(TGATabs.variables.effects == 'slide'){
+
+                TweenLite.to(TGATabs.variables.currentContent, 0.5, {css: {left: -TGATabs.settings.w.width()}});
+                TweenLite.set(TGATabs.variables.nextContent, {css: {left: TGATabs.settings.w.width()}});
+                TweenLite.to(TGATabs.variables.nextContent, 0.5, {css: {left: '0'}});
+
+            }
+
+        },
 
         setInitializeTab: function () {
 

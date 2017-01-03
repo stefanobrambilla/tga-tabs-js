@@ -2,7 +2,7 @@
 Manage tabs whitout display none
 
 ``` html
-<div class="tabbed-wrap">
+<div class="tabbed-wrap" data-effect="fade">
     <div class="tab" data-tab="upsell-products">
         tab1
     </div>
@@ -17,3 +17,10 @@ Manage tabs whitout display none
     </div>
 </div>
 ``` 
+
+``` Option
+
+`` Effect
+
+slide (is default)
+fade

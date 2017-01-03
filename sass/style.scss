@@ -6,7 +6,12 @@
 	height:auto;
 	text-align: center;
 	overflow: hidden;
-	@include transition(all 0.3s ease-in-out);
+    padding: 15px 0;
+    -webkit-transition: all 0.3ms ease-in-out;
+    -moz-transition: all 0.3ms ease-in-out;
+    -ms-transition: all 0.3ms ease-in-out;
+    -o-transition: all 0.3ms ease-in-out;
+    transition: all 0.3ms ease-in-out;
 
 	[data-tab]{
 
@@ -15,9 +20,9 @@
 		border-bottom: 2px solid transparent;
 		margin: 10px;
 		text-transform: uppercase;
-		@include font-family(primary);
-		@include font-size(16px);
-		@include color(text-color);
+		font-family: 'Arial';
+		font-size: 16px;
+		color: #999999;
 
 		&:not(.active){
 
@@ -27,10 +32,10 @@
 
 		&.active{
 
-			border-bottom: 2px solid map_get($colors, brand);
-			@include color(brand);
+			border-bottom: 2px solid #000000;
+            color: #000;
 
-		}
+        }
 
 	}
 
@@ -38,9 +43,28 @@
 
 		position: absolute;
 		width: 100%;
-		left:-100%;
 
 	}
+
+    &[data-effect="slide"]{
+
+        [data-tab-content]{
+
+            left:-100%;
+
+        }
+
+    }
+
+    &[data-effect="fade"]{
+
+        [data-tab-content]{
+
+            left:0;
+
+        }
+
+    }
 
 }
 
