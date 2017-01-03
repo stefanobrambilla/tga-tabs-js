@@ -1,6 +1,8 @@
 # TGA tabs js
 Manage tabs whitout display none
 
+
+### HTML
 ``` html
 <div class="tabbed-wrap" data-effect="fade">
     <div class="tab" data-tab="upsell-products">
