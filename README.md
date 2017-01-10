@@ -5,11 +5,13 @@ Manage tabs whitout display none
 ### HTML
 ``` html
 <div class="tabbed-wrap" data-effect="fade">
-    <div class="tab" data-tab="upsell-products">
-        tab1
-    </div>
-    <div class="tab" data-tab="related-products">
-        tab2
+    <div class="toggle-wrap">
+        <div class="tab" data-tab="upsell-products">
+            tab1
+        </div>
+        <div class="tab" data-tab="related-products">
+            tab2
+        </div>
     </div>
     <div class="tab-content upsell_products products-block" data-tab-content="upsell-products">
         tab1 content
