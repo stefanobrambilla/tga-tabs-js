@@ -45,6 +45,12 @@
 		width: 100%;
         left:-100%;
 
+        &.active{
+
+            z-index: 1;
+
+        }
+
 	}
 
     &[data-effect="slide"]{

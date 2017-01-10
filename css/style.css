@@ -28,6 +28,8 @@
     position: absolute;
     width: 100%;
     left: -100%; }
+    .tabbed-wrap [data-tab-content].active {
+      z-index: 1; }
   .tabbed-wrap[data-effect="slide"] [data-tab-content] {
     left: -100%; }
   .tabbed-wrap[data-effect="fade"] [data-tab-content] {
@@ -35,6 +37,7 @@
 
 body.touch .tabbed-wrap .toggle-wrap {
   overflow-x: scroll;
+  overflow-y: hidden;
   overflow-y: hidden;
   width: 100%;
   white-space: nowrap;
