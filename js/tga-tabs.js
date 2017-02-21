@@ -136,8 +136,16 @@
 
             if(TGATabs.variables.effects == 'fade'){
 
-                TweenLite.to(TGATabs.variables.allTabsContent, 0.5, {css: {opacity: 0}});
-                TweenLite.to(TGATabs.variables.nextContent, 0.5, {css: {opacity: 1}});
+                TweenLite.to(TGATabs.variables.allTabsContent, 0.5, {css: {opacity: 0},
+                    onComplete: function () {
+                        TweenLite.to(TGATabs.variables.currentContent, 0.1, {css: {left: -TGATabs.settings.w.width()}});
+                    }
+                });
+                TweenLite.to(TGATabs.variables.nextContent, 0.1, {css: {left: '0'},
+                    onComplete: function () {
+                        TweenLite.to(TGATabs.variables.nextContent, 0.5, {css: {opacity: 1}});
+                    }
+                });
 
             }else if(TGATabs.variables.effects == 'slide'){
 
