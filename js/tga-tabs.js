@@ -32,6 +32,7 @@
 
             this.nextToggle       = jQuery(t);
             this.currentWrap      = this.nextToggle.closest('.tabbed-wrap');
+            this.toggleWrap       = this.currentWrap.find('.toggle-wrap ');
             this.effects          = this.currentWrap.attr('data-effect');
             this.allToggle        = this.currentWrap.find('[data-tab]');
             this.allTabsContent   = this.currentWrap.find('[data-tab-content]');
@@ -72,24 +73,7 @@
 
         getHeightWrap: function () {
 
-            var tabRow      = 0,
-                tabHeight   = 0;
-
-            console.log(TGATabs.variables.currentWrap);
-
-            TGATabs.variables.allToggle.each( function () {
-
-                tabHeight = jQuery(this).outerHeight(true);
-
-                if(tabHeight > tabRow){
-
-                    tabRow = tabHeight;
-
-                }
-
-            });
-
-            return TGATabs.variables.nextContent.outerHeight(true) + tabRow;
+            return TGATabs.variables.nextContent.outerHeight(true) + TGATabs.variables.toggleWrap.outerHeight(true);
 
         },
 
